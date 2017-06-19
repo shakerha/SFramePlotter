@@ -886,10 +886,13 @@ double SPlotter::CalcNormErrorForBin(SHist* stack, int ibin)
   // due to normalisation uncertainty on different processes
   
   double err = 0;
+  double err2 = 0;
   for (int i=0; i<stack->GetStack()->GetStack()->GetEntries(); ++i){
     TH1* h = (TH1*) stack->GetStack()->GetHists()->At(i);
-    err += h->GetBinContent(ibin)*stack->GetUnc(i);
+    double ei = h->GetBinContent(ibin)*stack->GetUnc(i);
+    err2 += ei*ei;
   }
+  err = TMath::Sqrt(err2);
   return err;
 }
 
