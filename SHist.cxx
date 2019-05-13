@@ -360,3 +360,24 @@ void SHist::NormaliseToArea()
   }
 
 }
+
+void SHist::ScaleToBinWidth()
+{
+
+  if (IsStack())
+    {
+      TList* hists = m_stack->GetHists();
+      // scale each histogram
+      for (int i=0; i<hists->GetSize(); ++i)
+	{
+	  TH1* h = (TH1*) hists->At(i);
+	  h->Scale(1.,"width");
+	}
+      m_stack->Modified();
+    }
+  else 
+    {
+      m_hist->Scale(1., "width");
+    }
+  
+}

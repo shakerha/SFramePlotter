@@ -52,8 +52,8 @@ SPlotter::SPlotter()
   need_update  = true;
   bPlotLogy    = false;
   bIgnoreEmptyBins = false;
+  bScaleToWidth   = false;
  
-
 }
 
 SPlotter::~SPlotter()
@@ -543,6 +543,8 @@ void SPlotter::ProcessAndPlot(std::vector<TObjArray*> histarr)
     if (hists.size()==0) continue;
 
     if (bShapeNorm) ShapeNormalise(hists);
+
+    if (bScaleToWidth) ScaleToWidth(hists);
 
     int ipad = GetCurrentPad(iplot);
     
@@ -1718,6 +1720,8 @@ void SPlotter::GeneralCosmetics(TH1* hist)
     hist->GetYaxis()->SetTitle("#DeltaN/N");
   }
 
+  if (bScaleToWidth) hist->GetYaxis()->SetTitle("Events/GeV");
+
   hist->GetXaxis()->SetTitleFont(42);
   hist->GetXaxis()->SetLabelFont(42);
   hist->GetYaxis()->SetTitleFont(42);
@@ -1743,6 +1747,8 @@ void SPlotter::StackCosmetics(THStack* hist)
   if (bShapeNorm) {
     hist->GetYaxis()->SetTitle("#DeltaN/N");
   }
+
+  if (bScaleToWidth) hist->GetYaxis()->SetTitle("Events/GeV");
 
   hist->GetXaxis()->SetTitleFont(42);
   hist->GetXaxis()->SetLabelFont(42);
@@ -1980,6 +1986,13 @@ void SPlotter::ShapeNormalise(std::vector<SHist*> hists)
 {
   for (unsigned int i=0; i<hists.size(); ++i){
     hists[i]->NormaliseToArea();
+  }
+}
+
+void SPlotter::ScaleToWidth(std::vector<SHist*> hists)
+{
+  for (unsigned int i=0; i<hists.size(); ++i){
+    hists[i]->ScaleToBinWidth();
   }
 }
 

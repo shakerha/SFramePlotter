@@ -61,6 +61,8 @@ class SHist : public TObject
 
   void NormaliseToArea();
 
+  void ScaleToBinWidth();
+
   void DrawNoErrorX(bool);
   bool GetNoErrorX();
 
