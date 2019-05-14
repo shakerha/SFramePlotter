@@ -45,6 +45,7 @@ class SPlotter
   std::vector<SHist*> CalcRatios(std::vector<SHist*> hists);
   std::vector<SHist*> CalcZScore(std::vector<SHist*> hists);
   void ShapeNormalise(std::vector<SHist*> hists);
+  void ScaleToWidth(std::vector<SHist*> hists);
   void DrawLegend(std::vector<SHist*> hists);
   void DrawLumi();
   void DrawSysError(SHist* stack);
@@ -72,6 +73,7 @@ class SPlotter
   // setters
   void SetDebug(bool flag=true){debug=flag;}
   void SetShapeNorm(Bool_t flag = true){bShapeNorm = flag;}
+  void SetScaleToWidth(Bool_t flag = true){bScaleToWidth = flag;}
   void SetPortraitMode(Bool_t flag = true){bPortrait = flag;}
   void SetSingleEPSMode(Bool_t flag = true){bSingleEPS = flag;}
   void SetDrawEntries(Bool_t flag = true){bDrawEntries = flag;}
@@ -130,6 +132,7 @@ class SPlotter
   bool  need_update;        // should the canvas get an update?
   bool  bPlotLogy;          // plot all plots with log y scale
   bool  bIgnoreEmptyBins;   // don't plot empty bins in the ratio
+  bool  bScaleToWidth;      // normalize each bin to it's width
 
 };
 

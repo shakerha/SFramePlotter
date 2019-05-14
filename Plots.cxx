@@ -87,6 +87,7 @@ int main(int argc, char** argv)
   TObjArray* InputFilenames  = steerfile->GetInputFiles();
   TString PsFilename         = steerfile->GetOutputPsFile();
   Bool_t ShapeNorm           = steerfile->GetShapeNorm();
+  Bool_t ScaleToWidth        = steerfile->GetScaleToWidth();
   Bool_t RatioPlot           = steerfile->GetRatioPlot();
   Bool_t zscore              = steerfile->GetZScoreInRatio();
   Bool_t PortraitMode        = steerfile->GetPortrait();
@@ -169,6 +170,7 @@ int main(int argc, char** argv)
   // ____________ set up the plotter ______________
 
   pl.SetShapeNorm(ShapeNorm);
+  pl.SetScaleToWidth(ScaleToWidth);
   pl.SetPortraitMode(PortraitMode);
   pl.SetDrawEntries(DrawEntries);
   pl.SetPlotRatio(RatioPlot);

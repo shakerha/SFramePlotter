@@ -16,6 +16,9 @@ public:
   
     virtual void Print(Option_t* option="") const;
   
+    void SetScaleToWidth(Bool_t flag);
+    Bool_t GetScaleToWidth();
+
     void SetShapeNorm(Bool_t flag);
     Bool_t GetShapeNorm();
 
@@ -114,6 +117,7 @@ public:
 
 private:
 
+    Bool_t    bScaleToWidth;      // Scale Hist to bin width
     Bool_t    bShapeNorm;         // Shape normalization?
     Bool_t    bLumiNorm;          // Lumi normalization?
     Bool_t    bRatioPlot;         // plot ratios
