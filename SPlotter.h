@@ -83,6 +83,7 @@ class SPlotter
   void SetForPrelim(Bool_t flag=true){bForPrelim = flag;}
   void SetForPublication(Bool_t flag=true){bForPublication = flag;}
   void SetLumi(float lumi){m_lumi = lumi;}
+  void SetEnergy(int energy){m_energy = energy;}
   void SetNormError(float err){m_syserr = err;}
   void SetDrawLegend(Bool_t flag=true){bDrawLegend = flag;}
   void SetPsFilename(TString name);
@@ -125,6 +126,7 @@ class SPlotter
   bool  bForPrelim;         // write "CMS Preliminary"
   bool  bForPublication;    // write "CMS"
   float m_lumi;             // total integrated luminosity
+  int m_energy;             // center of mass energy
   float m_syserr;           // systematic error on normalisation uncertainty
   bool  bDrawLegend;        // display legend?
   bool  bPlotRatio;         // should a ratio be plotted?

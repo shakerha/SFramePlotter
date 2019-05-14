@@ -105,6 +105,7 @@ int main(int argc, char** argv)
   Bool_t ForPrelim           = steerfile->GetForPrelim();
   Bool_t ForPublication      = steerfile->GetForPublication();
   Float_t Lumi               = steerfile->GetLumi();
+  Int_t Energy               = steerfile->GetEnergy();
   Float_t SysErr             = steerfile->GetSysError();
   Bool_t DrawLegend          = steerfile->GetDrawLegend();
   Bool_t DoCumulative        = steerfile->GetDoCumulative();
@@ -179,6 +180,7 @@ int main(int argc, char** argv)
   pl.SetDrawLegend(DrawLegend);
   pl.SetPsFilename(PsFilename);
   pl.SetLumi(Lumi);
+  pl.SetEnergy(Energy);
   pl.SetNormError(SysErr);
   pl.SetSingleEPSMode(SingleEPS);
   pl.SetForPublication(ForPublication);

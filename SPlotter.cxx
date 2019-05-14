@@ -37,6 +37,7 @@ SPlotter::SPlotter()
 
   m_page       = 0;
   m_lumi       = 0;
+  m_energy     = 13;
   m_syserr     = -1;
   debug        = false;
   bShapeNorm   = false;
@@ -1393,7 +1394,7 @@ void SPlotter::DrawLegend(vector<SHist*> hists)
 
 void SPlotter::DrawLumi()
 {
-  TString infotext = TString::Format("%3.1f fb^{-1} (8 TeV)", m_lumi);
+  TString infotext = TString::Format("%3.1f fb^{-1} (%d TeV)", m_lumi, m_energy);
   TLatex *text1 = new TLatex(3.5, 24, infotext);
   text1->SetNDC();
   text1->SetTextAlign(33);
