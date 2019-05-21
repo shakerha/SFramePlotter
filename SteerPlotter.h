@@ -97,6 +97,9 @@ public:
     void SetLumi(Float_t lumi);
     Float_t GetLumi();
 
+    void SetEnergy(Int_t energy);
+    Int_t GetEnergy();
+
     void SetSysError(Float_t err);
     Float_t GetSysError();
 
@@ -137,6 +140,7 @@ private:
     Bool_t    bIgnoreEmptyBins;   // ignore empty bins in the ratio
     Int_t     fNumOfSamples;      // how many analysis samples should be plotted
     Float_t   fLumi;              // integrated luminosity of sample
+    Int_t     dEnergy;            // center of mass energy of sample
     Float_t   fSysError;          // systematic error on normalisation
     TObjArray  fSampleNames;      // all sample name
 

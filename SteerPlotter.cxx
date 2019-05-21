@@ -24,6 +24,7 @@ SteerPlotter::SteerPlotter()
    bDoCumulative = false;
    fNumOfSamplesToStack = 0;
    fLumi = 0;
+   dEnergy = 13;
    fSysError = -1.;
    bPlotThetaFile = false;
    bLogy = false;
@@ -203,6 +204,9 @@ Bool_t SteerPlotter::GetLogy(){return bLogy;}
 
 void SteerPlotter::SetLumi(Float_t lumi){fLumi = lumi;}
 Float_t SteerPlotter::GetLumi(){return fLumi;}
+
+void SteerPlotter::SetEnergy(Int_t energy){dEnergy = energy;}
+Int_t SteerPlotter::GetEnergy(){return dEnergy;}
 
 void SteerPlotter::SetSysError(Float_t err){fSysError = err;}
 Float_t SteerPlotter::GetSysError(){return fSysError;}
