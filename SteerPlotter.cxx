@@ -23,6 +23,7 @@ SteerPlotter::SteerPlotter()
    bIgnoreEmptyBins = false;
    bDoCumulative = false;
    fNumOfSamplesToStack = 0;
+   fYear = 1990;
    fLumi = 0;
    dEnergy = 13;
    fSysError = -1.;
@@ -204,6 +205,9 @@ Bool_t SteerPlotter::GetLogy(){return bLogy;}
 
 void SteerPlotter::SetLumi(Float_t lumi){fLumi = lumi;}
 Float_t SteerPlotter::GetLumi(){return fLumi;}
+
+void SteerPlotter::SetYear(Int_t year){fYear = year;}
+Int_t SteerPlotter::GetYear(){return fYear;}
 
 void SteerPlotter::SetEnergy(Int_t energy){dEnergy = energy;}
 Int_t SteerPlotter::GetEnergy(){return dEnergy;}

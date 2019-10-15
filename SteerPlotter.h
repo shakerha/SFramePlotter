@@ -97,6 +97,9 @@ public:
     void SetLumi(Float_t lumi);
     Float_t GetLumi();
 
+    void SetYear(Int_t year);
+    Int_t GetYear();
+
     void SetEnergy(Int_t energy);
     Int_t GetEnergy();
 
@@ -139,6 +142,7 @@ private:
     Bool_t    bPlotThetaFile;     // take input histograms from theta file
     Bool_t    bIgnoreEmptyBins;   // ignore empty bins in the ratio
     Int_t     fNumOfSamples;      // how many analysis samples should be plotted
+    Int_t     fYear;              // Year of sample
     Float_t   fLumi;              // integrated luminosity of sample
     Int_t     dEnergy;            // center of mass energy of sample
     Float_t   fSysError;          // systematic error on normalisation
