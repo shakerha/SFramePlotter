@@ -266,7 +266,7 @@ void SPlotter::SetupGlobalStyle()
   gStyle->SetAxisColor(1, "XYZ");
   gStyle->SetStripDecimals(kTRUE);
   gStyle->SetTickLength(0.03, "XYZ");
-  gStyle->SetNdivisions(510, "XYZ");
+  gStyle->SetNdivisions(505, "XYZ");
 
   gStyle->UseCurrentStyle();
 
@@ -1035,7 +1035,8 @@ vector<SHist*> SPlotter::CalcRatios(vector<SHist*> hists)
     Double_t rel_err = err / val;
     rdhist->SetBinError(ibin, rel_err * rdhist->GetBinContent(ibin) );
   }
-  rdhist->GetYaxis()->SetTitle(rd->GetProcessName() + " / BG");
+  //rdhist->GetYaxis()->SetTitle(rd->GetProcessName() + " / BG");
+  rdhist->GetYaxis()->SetTitle("DATA / BG");
   if (bSingleEPS){
     SingleEPSRatioCosmetics(rdhist);
   } else {
@@ -1330,7 +1331,7 @@ void SPlotter::DrawLegend(vector<SHist*> hists)
   }
   float ysize = yfrac*narr;
   float xleft = 0.7;
-  if (bSingleEPS) xleft = 0.6;
+  if (bSingleEPS) xleft = 0.75;
   float xright = 0.92;
   if (!bPortrait){
     top = 0.99;
@@ -1395,7 +1396,7 @@ void SPlotter::DrawLegend(vector<SHist*> hists)
 
 void SPlotter::DrawLumi()
 {
-  TString infotext = TString::Format("%i  %3.1f fb^{-1} (%d TeV)", m_year, m_lumi, m_energy);
+  TString infotext = TString::Format("[%i]                                      %3.1f fb^{-1} (%d TeV)", m_year, m_lumi, m_energy);
   TLatex *text1 = new TLatex(3.5, 24, infotext);
   text1->SetNDC();
   text1->SetTextAlign(33);
@@ -1802,7 +1803,7 @@ void SPlotter::SingleEPSCosmetics(TH1* hist)
     
     // x-axis
     hist->GetXaxis()->SetTickLength(0.05);
-
+	hist->GetXaxis()->SetNdivisions(505);
     // y-axis
     hist->GetYaxis()->SetTitleSize(0.07);
     hist->GetYaxis()->SetLabelSize(0.062);
