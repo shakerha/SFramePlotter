@@ -1,0 +1,40 @@
+SteerPlotter(){
+  
+  // steering for the plotter
+fCycleName = "/nfs/dust/cms/user/shakerha/UHH2Output/CI/uhh2.AnalysisModuleRunner"; // name of the cycle (first part of the name of the root files)
+
+//fInputFiles="MC.SIGNAL_*.root, ";
+fInputFiles="			MC.SIGNAL_M*.root, MC.MC_QCD_Pt_*.root"; // name of the input files (second part)
+  fSampleNames   = "     CI Signal, QCD   "; // name of chains to be plotted
+  //fSampleNames = "MSUB[jj]:SPACE1.5-1.9TeV,MSUB[jj]:SPACE1.9-2.4TeV,MSUB[jj]:SPACE2.4-2.8TeV,MSUB[jj]:SPACE2.8-3.3TeV,MSUB[jj]:SPACE3.3-3.8TeV,MSUB[jj]:SPACE3.8-4.3TeV,MSUB[jj]:SPACE4.3-13TeV, QCD  ";
+  fSamplesWeight = "      1.0,	1.0   		"; // weights applied to the samples (same order as in fInputFiles)
+  fSamplesUnc  = "        0.0,  0.0"; // normalisation uncertainty of individual samples 
+  fHistColors =  "       632,         867		";   // the colors of the histograms, negative numbers mean no filling
+  fHistMarkers = "          0,		 0	"		; // histogram markers (0=solid line, -1=dashed line, 24=open circle...)
+
+fSamplesToStack = ""; // the names of chains which you would like to stack (same as in input filenames)
+
+fOutputPsFile = "/nfs/dust/cms/user/shakerha/bachelor/102/CMSSW_10_2_10/src/UHH2/DijetAngularAnalysis/Plots/signalplots/Plots.ps";				
+  bLogy=false;
+  bScaleToWidth=true;
+  bRatioPlot = false;   // plot ratio histograms?
+  bZScoreInRatio = false;   // plot z-score instead of usual ratio
+  bDrawLegend = true;   // draw a legend on each histogram? (otherwise only on the first one in each ps file)
+  bShapeNorm = false;   // shape normalization? 
+  bPortrait = true;    // portrait or landscape?
+  bDrawEntries = false; // draw the histogram entries?
+  fLumi = 35.9; // luminosity of sample  	
+  fYear = 2016;	
+  fSysError = 0.022; // luminosity uncertainty
+  bDrawLumi = true;   // plot ratio histograms?
+  bForPrelim = false; // draw text saying "CMS Preliminary" -> only works if bDrawLumi is on
+  bForPublication = false; // draw text saying "CMS" -> only works if bDrawLumi is on
+  bSingleEPS = true;
+}
+// Colors from ROOT:
+// num EColor { kWhite =0,   kBlack =1,   kGray=920
+//             ,kRed   =632, kGreen =416, kBlue=600, kYellow=400, kMagenta=616, kCyan=432
+//             ,kOrange=800, kSpring=820, kTeal=840, kAzure =860, kViolet =880, kPink=900};
+//
+// default QCD   = 867 -> lighter version of Azure
+// default ttbar = 810 -> dark version of Orange (rather red)
